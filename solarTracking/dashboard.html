@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h1>
+Solar Tracking Cloth Dryer
+</h1>
+
+<h2 id="left"></h2>
+<h2 id="right"></h2>
+<h2 id="rain"></h2>
+<h2 id="motor"></h2>
+
+<script>
+
+function getData()
+{
+fetch("/")
+
+.then(
+res=>res.json()
+)
+
+.then(data=>{
+
+document.getElementById(
+"left"
+).innerHTML=
+"LDR Left : "
++data.ldr_left
+
+document.getElementById(
+"right"
+).innerHTML=
+"LDR Right : "
++data.ldr_right
+
+document.getElementById(
+"rain"
+).innerHTML=
+"Rain : "
++data.rain
+
+document.getElementById(
+"motor"
+).innerHTML=
+"Motor : "
++data.motor
+
+})
+
+}
+
+setInterval(
+getData,
+2000
+)
+
+</script>
+
+</body>
+
+</html>
